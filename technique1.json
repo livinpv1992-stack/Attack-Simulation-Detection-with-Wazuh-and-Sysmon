@@ -1,0 +1,102 @@
+{
+  "_index": "wazuh-alerts-4.x-2026.04.24",
+  "_id": "5FQcwJ0ByDjI36m468C2",
+  "_score": 1,
+  "_source": {
+    "agent": {
+      "ip": "192.168.178.172",
+      "name": "windows11",
+      "id": "001"
+    },
+    "manager": {
+      "name": "wazuh-server"
+    },
+    "data": {
+      "win": {
+        "eventdata": {
+          "originalFileName": "Cmd.Exe",
+          "image": "C:\\\\Windows\\\\System32\\\\cmd.exe",
+          "product": "Microsoft® Windows® Operating System",
+          "parentProcessGuid": "{23f1b013-7888-69eb-4d02-000000000b00}",
+          "description": "Windows Command Processor",
+          "logonGuid": "{23f1b013-7888-69eb-2403-520000000000}",
+          "parentCommandLine": "C:\\\\Users\\\\dream\\\\AppData\\\\Local\\\\Temp\\\\mimikatz\\\\x64\\\\mimikatz.exe  \\\"sekurlsa::pth /user:Administrator /domain:%userdnsdomain% /ntlm:cc36cf7a8514893efccd3324464tkg1a\\\"",
+          "processGuid": "{23f1b013-7888-69eb-5102-000000000b00}",
+          "logonId": "0x520324",
+          "parentProcessId": "7880",
+          "processId": "664",
+          "currentDirectory": "C:\\\\WINDOWS\\\\system32\\\\",
+          "utcTime": "2026-04-24 14:04:56.462",
+          "hashes": "MD5=77F0062F490BCC7023763A422E561945,SHA256=14CC8AB1DCF0D9F19E8FB82DEB547CF8C462C56A0E43F7ADDC02641AB3C81651,IMPHASH=B0F049C014592B156EB1FA857E99CEB9",
+          "parentImage": "C:\\\\Users\\\\dream\\\\AppData\\\\Local\\\\Temp\\\\mimikatz\\\\x64\\\\mimikatz.exe",
+          "company": "Microsoft Corporation",
+          "commandLine": "cmd.exe",
+          "integrityLevel": "High",
+          "fileVersion": "10.0.26100.8115 (WinBuild.160101.0800)",
+          "user": "livin\\\\dream",
+          "terminalSessionId": "1",
+          "parentUser": "livin\\\\dream"
+        },
+        "system": {
+          "eventID": "1",
+          "keywords": "0x8000000000000000",
+          "providerGuid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+          "level": "4",
+          "channel": "Microsoft-Windows-Sysmon/Operational",
+          "opcode": "0",
+          "message": "\"Process Create:\r\nRuleName: -\r\nUtcTime: 2026-04-24 14:04:56.462\r\nProcessGuid: {23f1b013-7888-69eb-5102-000000000b00}\r\nProcessId: 664\r\nImage: C:\\Windows\\System32\\cmd.exe\r\nFileVersion: 10.0.26100.8115 (WinBuild.160101.0800)\r\nDescription: Windows Command Processor\r\nProduct: Microsoft® Windows® Operating System\r\nCompany: Microsoft Corporation\r\nOriginalFileName: Cmd.Exe\r\nCommandLine: cmd.exe\r\nCurrentDirectory: C:\\WINDOWS\\system32\\\r\nUser: livin\\dream\r\nLogonGuid: {23f1b013-7888-69eb-2403-520000000000}\r\nLogonId: 0x520324\r\nTerminalSessionId: 1\r\nIntegrityLevel: High\r\nHashes: MD5=77F0062F490BCC7023763A422E561945,SHA256=14CC8AB1DCF0D9F19E8FB82DEB547CF8C462C56A0E43F7ADDC02641AB3C81651,IMPHASH=B0F049C014592B156EB1FA857E99CEB9\r\nParentProcessGuid: {23f1b013-7888-69eb-4d02-000000000b00}\r\nParentProcessId: 7880\r\nParentImage: C:\\Users\\dream\\AppData\\Local\\Temp\\mimikatz\\x64\\mimikatz.exe\r\nParentCommandLine: C:\\Users\\dream\\AppData\\Local\\Temp\\mimikatz\\x64\\mimikatz.exe  \"sekurlsa::pth /user:Administrator /domain:%userdnsdomain% /ntlm:cc36cf7a8514893efccd3324464tkg1a\"\r\nParentUser: livin\\dream\"",
+          "version": "5",
+          "systemTime": "2026-04-24T14:04:56.4646261Z",
+          "eventRecordID": "4774",
+          "threadID": "4608",
+          "computer": "livin",
+          "task": "1",
+          "processID": "2756",
+          "severityValue": "INFORMATION",
+          "providerName": "Microsoft-Windows-Sysmon"
+        }
+      }
+    },
+    "rule": {
+      "firedtimes": 2,
+      "mail": false,
+      "level": 4,
+      "description": "Windows command prompt started by an abnormal process",
+      "groups": [
+        "sysmon",
+        "sysmon_eid1_detections",
+        "windows"
+      ],
+      "mitre": {
+        "technique": [
+          "Windows Command Shell"
+        ],
+        "id": [
+          "T1059.003"
+        ],
+        "tactic": [
+          "Execution"
+        ]
+      },
+      "id": "92052"
+    },
+    "decoder": {
+      "name": "windows_eventchannel"
+    },
+    "input": {
+      "type": "log"
+    },
+    "@timestamp": "2026-04-24T15:30:08.507Z",
+    "location": "EventChannel",
+    "id": "1777044608.1681549",
+    "timestamp": "2026-04-24T15:30:08.507+0000"
+  },
+  "fields": {
+    "timestamp": [
+      "2026-04-24T15:30:08.507Z"
+    ],
+    "@timestamp": [
+      "2026-04-24T15:30:08.507Z"
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "_index": "wazuh-alerts-4.x-2026.04.24",
+  "_id": "bVQ0wJ0ByDjI36m4JMHF",
+  "_score": 1,
+  "_source": {
+    "agent": {
+      "ip": "192.168.178.172",
+      "name": "windows11",
+      "id": "001"
+    },
+    "manager": {
+      "name": "wazuh-server"
+    },
+    "data": {
+      "win": {
+        "eventdata": {
+          "serviceType": "user mode service",
+          "accountName": "LocalSystem",
+          "imagePath": "%SystemRoot%\\\\PSEXESVC.exe",
+          "startType": "demand start",
+          "serviceName": "PSEXESVC"
+        },
+        "system": {
+          "eventID": "7045",
+          "eventSourceName": "Service Control Manager",
+          "keywords": "0x8080000000000000",
+          "providerGuid": "{555908d1-a6d7-4695-8e1e-26931d2012f4}",
+          "level": "4",
+          "channel": "System",
+          "opcode": "0",
+          "message": "\"A service was installed in the system.\r\n\r\nService Name:  PSEXESVC\r\nService File Name:  %SystemRoot%\\PSEXESVC.exe\r\nService Type:  user mode service\r\nService Start Type:  demand start\r\nService Account:  LocalSystem\"",
+          "version": "0",
+          "systemTime": "2026-04-24T14:30:20.7671487Z",
+          "eventRecordID": "1661",
+          "threadID": "7040",
+          "computer": "livin",
+          "task": "0",
+          "processID": "944",
+          "severityValue": "INFORMATION",
+          "providerName": "Service Control Manager"
+        }
+      }
+    },
+    "rule": {
+      "firedtimes": 1,
+      "mail": true,
+      "level": 12,
+      "description": "New Windows Service Created to start from windows root path. Suspicious event as the binary may have been dropped using Windows Admin Shares.",
+      "groups": [
+        "win_evt_channel",
+        "windows"
+      ],
+      "mitre": {
+        "technique": [
+          "SMB/Windows Admin Shares",
+          "Service Execution"
+        ],
+        "id": [
+          "T1021.002",
+          "T1569.002"
+        ],
+        "tactic": [
+          "Lateral Movement",
+          "Execution"
+        ]
+      },
+      "id": "92650"
+    },
+    "decoder": {
+      "name": "windows_eventchannel"
+    },
+    "input": {
+      "type": "log"
+    },
+    "@timestamp": "2026-04-24T15:55:33.633Z",
+    "location": "EventChannel",
+    "id": "1777046133.2183943",
+    "timestamp": "2026-04-24T15:55:33.633+0000"
+  },
+  "fields": {
+    "timestamp": [
+      "2026-04-24T15:55:33.633Z"
+    ],
+    "@timestamp": [
+      "2026-04-24T15:55:33.633Z"
+    ]
+  }
+}

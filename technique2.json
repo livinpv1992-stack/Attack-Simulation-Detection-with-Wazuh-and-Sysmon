@@ -1,0 +1,87 @@
+{
+  "_index": "wazuh-alerts-4.x-2026.04.24",
+  "_id": "wVSKwJ0ByDjI36m4IcG2",
+  "_score": 1,
+  "_source": {
+    "agent": {
+      "ip": "192.168.178.172",
+      "name": "windows11",
+      "id": "001"
+    },
+    "manager": {
+      "name": "wazuh-server"
+    },
+    "data": {
+      "win": {
+        "eventdata": {
+          "image": "C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe",
+          "processGuid": "{23f1b013-8c81-69eb-d203-000000000b00}",
+          "processId": "9156",
+          "utcTime": "2026-04-24 15:30:09.572",
+          "targetFilename": "C:\\\\Users\\\\dream\\\\AppData\\\\Local\\\\Temp\\\\__PSScriptPolicyTest_bzkw3gaq.t4n.ps1",
+          "creationUtcTime": "2026-04-24 15:30:09.572",
+          "user": "livin\\\\dream"
+        },
+        "system": {
+          "eventID": "11",
+          "keywords": "0x8000000000000000",
+          "providerGuid": "{5770385f-c22a-43e0-bf4c-06f5698ffbd9}",
+          "level": "4",
+          "channel": "Microsoft-Windows-Sysmon/Operational",
+          "opcode": "0",
+          "message": "\"File created:\r\nRuleName: -\r\nUtcTime: 2026-04-24 15:30:09.572\r\nProcessGuid: {23f1b013-8c81-69eb-d203-000000000b00}\r\nProcessId: 9156\r\nImage: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\r\nTargetFilename: C:\\Users\\dream\\AppData\\Local\\Temp\\__PSScriptPolicyTest_bzkw3gaq.t4n.ps1\r\nCreationUtcTime: 2026-04-24 15:30:09.572\r\nUser: livin\\dream\"",
+          "version": "2",
+          "systemTime": "2026-04-24T15:30:09.5741892Z",
+          "eventRecordID": "5104",
+          "threadID": "4608",
+          "computer": "livin",
+          "task": "11",
+          "processID": "2756",
+          "severityValue": "INFORMATION",
+          "providerName": "Microsoft-Windows-Sysmon"
+        }
+      }
+    },
+    "rule": {
+      "firedtimes": 24,
+      "mail": true,
+      "level": 15,
+      "description": "Executable file dropped in folder commonly used by malware",
+      "groups": [
+        "sysmon",
+        "sysmon_eid11_detections",
+        "windows"
+      ],
+      "mitre": {
+        "technique": [
+          "Ingress Tool Transfer"
+        ],
+        "id": [
+          "T1105"
+        ],
+        "tactic": [
+          "Command and Control"
+        ]
+      },
+      "id": "92213"
+    },
+    "decoder": {
+      "name": "windows_eventchannel"
+    },
+    "input": {
+      "type": "log"
+    },
+    "@timestamp": "2026-04-24T17:29:30.609Z",
+    "location": "EventChannel",
+    "id": "1777051770.2449930",
+    "timestamp": "2026-04-24T17:29:30.609+0000"
+  },
+  "fields": {
+    "timestamp": [
+      "2026-04-24T17:29:30.609Z"
+    ],
+    "@timestamp": [
+      "2026-04-24T17:29:30.609Z"
+    ]
+  }
+}
